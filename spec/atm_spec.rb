@@ -31,5 +31,3 @@ describe Atm do
         expect(subject.withdraw(45, account)).to eq expected_output
     end
 end
-
-#this is a change
