@@ -1,4 +1,5 @@
-require 'Date'
+require 'date'
+#Hi. Here is a response.
 
 class Atm
     attr_accessor :funds

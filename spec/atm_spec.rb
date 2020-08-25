@@ -1,5 +1,5 @@
 require './lib/atm.rb'
-require 'Date'
+require 'date'
 
 describe Atm do
     it 'has 1000$ on initialize' do
