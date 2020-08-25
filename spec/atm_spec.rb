@@ -1,5 +1,5 @@
 require './lib/atm.rb'
-require 'date'
+require 'Date'
 
 describe Atm do
     it 'has 1000$ on initialize' do
@@ -12,14 +12,10 @@ describe Atm do
     end
 
 
-    let(:account) { instance_double('Account')}
+    let(:account) { instance_double('account')}
 
     before do
-        #Before each test we need to add an attribute of 'balance'
-        #to the 'account' object and set the value to '100'.
         allow(account).to receive(:balance).and_return(100)
-        #We also need to allow account to receive the new balance
-        #using the setter method 'balance='
         allow(account).to receive(:balance=)
     end
 
