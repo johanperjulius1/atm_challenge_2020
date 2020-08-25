@@ -1,3 +1,5 @@
+require 'date'
+
 class Atm
     attr_accessor :funds
 
@@ -13,5 +15,6 @@ class Atm
         @funds -= amount
         account.balance -= amount
         { status: true, message: 'success', date: Date.today, amount: amount }
+        end
     end
 end
