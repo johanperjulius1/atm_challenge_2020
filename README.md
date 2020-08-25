@@ -1,1 +1,7 @@
-# atm_challenge_2020
+Building a virtual ATM
+
+
+
+Tests --> spec folder
+implementation --> lib
+settings files --> parent folder
