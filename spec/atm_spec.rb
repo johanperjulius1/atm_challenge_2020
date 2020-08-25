@@ -7,7 +7,7 @@ describe Atm do
     end
 
     it 'funds are reduced at withdraw' do
-        subject.withdraw 50
+        subject.withdraw(50, account)
         expect(subject.funds).to eq 950
     end
 

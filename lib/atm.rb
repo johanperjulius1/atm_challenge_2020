@@ -14,7 +14,7 @@ class Atm
             return
         else
         @funds -= amount
-        account.balance account.balance - amount
+        account.balance = account.balance - amount
         { status: true, message: 'success', date: Date.today, amount: amount }
         end
     end
