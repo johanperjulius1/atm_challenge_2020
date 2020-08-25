@@ -10,6 +10,7 @@ describe Atm do
         expect(subject.funds).to eq 950
     end
 
+
     let(:account)   {
         instance_double('Account')
     }
@@ -20,6 +21,14 @@ describe Atm do
         allow(account).to receive(:balance).and_return(100)
         #We also need to aloow account to receive the new balance
         #using the setter method 'balance='
-        allow(account).to recieve(:balance=)
+        allow(account).to receive(:balance=)
+    end
+
+    it 'allow withdraw if the account has enough balance.' do
+        expected_output = {
+            status: true, message: 'success', date: Date.today, amount: 45
+        }
+        
+        expect(subject.withdraw(45, account)).to eq expected_output
     end
 end
