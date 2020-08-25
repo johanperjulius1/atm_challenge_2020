@@ -16,7 +16,7 @@ class Atm
         perform_transaction(amount, account)
         end
     end
-    private
+
     def insufficient_funds_in_account?(amount, account)
         amount > account.balance
     end
