@@ -12,7 +12,7 @@ describe Atm do
     end
 
 
-    let(:account) { instance_double('account', pin_code: '1234')}
+    let(:account) { instance_double('account', pin_code: 1234)}
 
     before do
         allow(account).to receive(:balance).and_return(100)
@@ -37,6 +37,6 @@ describe Atm do
     end
     it 'rejects withdraw if pin_code is incorrect' do
         expected_output = { status: false, message: 'incorrect pin code', date: Date.today }
-        expect(subject.withdraw(500, 1243, account)).to eq expected_output
+        expect(subject.withdraw(100, 1243, account)).to eq expected_output
     end
 end
