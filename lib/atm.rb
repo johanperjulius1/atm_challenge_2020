@@ -42,6 +42,6 @@ class Atm
     end
 
     def card_expired?(exp_date)
-        Date.strptime(exp_date, '%m %y') < Date.today
+        Date.strptime(exp_date, '%m/%y') < Date.today
     end 
 end
