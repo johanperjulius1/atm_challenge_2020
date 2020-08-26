@@ -7,12 +7,12 @@ describe Atm do
     end
 
     it 'funds are reduced at withdraw' do
-        subject.withdraw(50, account)
+        subject.withdraw(50, 1234, account)
         expect(subject.funds).to eq 950
     end
 
 
-    let(:account) { instance_double('account')}
+    let(:account) { instance_double('account', pin_code: '1234')}
 
     before do
         allow(account).to receive(:balance).and_return(100)
@@ -22,17 +22,21 @@ describe Atm do
     it 'allow withdraw if the account has enough balance.' do
         expected_output = { status: true, message: 'success', date: Date.today, amount: 45}
         
-        expect(subject.withdraw(45, account)).to eq expected_output
+        expect(subject.withdraw(45, 1234, account)).to eq expected_output
     end
 
     it 'rejects withdraw if account has insufficient funds' do
         expected_output = { status: false, message: 'insufficient funds', date: Date.today }
 
-        expect(subject.withdraw(105, account)).to eq expected_output
+        expect(subject.withdraw(105, 1234, account)).to eq expected_output
     end
     it 'reject withdraw if ATM has insufficient funds' do
         subject.funds = 50
         expected_output = { status: false, message: 'insufficient funds in ATM', date: Date.today }
-        expect(subject.withdraw(100, account)).to eq expected_output
+        expect(subject.withdraw(100, 1234, account)).to eq expected_output
+    end
+    it 'rejects withdraw if pin_code is incorrect' do
+        expected_output = { status: false, message: 'incorrect pin code', date: Date.today }
+        expect(subject.withdraw(500, 1243, account)).to eq expected_output
     end
 end
