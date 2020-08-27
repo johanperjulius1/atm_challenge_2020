@@ -1,7 +1,8 @@
 require 'date'
 
 class Account
-    attr_accessor :account_status
+    attr_accessor   :account_status
+    attr_accessor   :pin_code
     
     def initialize
         @account_status = :active
