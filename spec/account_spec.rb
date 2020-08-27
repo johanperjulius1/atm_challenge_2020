@@ -1,6 +1,8 @@
+require './lib/account.rb'
+
 describe Account do
-    it 'check the length of a number' do
-    number = 1234
-    number_length = Math.log10(number).to_i +1
-    expect(number_length).to eq 4
+    it 'is expected to have :active status on initilization' do
+        expect(subject.account_status).to eq :active
+        
     end
+end
