@@ -21,13 +21,14 @@ class Account
     number_length = Math.log10(pin_code).to_i + 1
   end
 
-  #private
+    #private
 
   def set_owner(obj)
-    obj.nil? ? missing_owner : @owner = obj
+    obj == nil ? missing_owner : @owner = obj
   end
 
   def missing_owner
-    raise RuntimeError, 'An Account owner is required'
+    raise 'An Account owner is required'
   end
+
 end

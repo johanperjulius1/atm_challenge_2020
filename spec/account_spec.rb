@@ -29,7 +29,7 @@ describe Account do
   end
 
   it 'is expected to raise error if no owner is set' do
-   #binding.pry
-    expect {described_class.new}.to raise_error 'An account owner is required'
+  
+    expect {described_class.new}.to raise_error 'An Account owner is required'
   end
 end
